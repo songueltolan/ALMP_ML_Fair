@@ -1,0 +1,201 @@
+%%%% ijcai18.tex
+
+\documentclass[article,a4paper]{llncs}
+\usepackage{geometry}
+\geometry{
+%  a4paper,         % or letterpaper
+%  textwidth=15cm,  % llncs has 12.2cm
+%  textheight=24cm, % llncs has 19.3cm
+%  heightrounded,   % integer number of lines
+  hratio=1:1,      % horizontally centered
+%  vratio=2:3,      % not vertically centered
+}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\setcounter{tocdepth}{3}
+\usepackage{graphicx}
+\usepackage{natbib}
+\usepackage{color,soul}
+\usepackage{hyperref}
+\usepackage{threeparttable}
+\usepackage{longtable}
+\usepackage{ltxtable} 
+\usepackage{tabularx}
+    \newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\usepackage{booktabs,siunitx}
+\usepackage[small]{caption}
+\usepackage{fourier} 
+\usepackage{array}
+\usepackage{makecell}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage[table]{xcolor}% http://ctan.org/pkg/xcolor
+\usepackage{tabstackengine}
+\usepackage{lipsum, xcolor}
+\setcounter{secnumdepth}{3}
+\renewcommand{\labelitemi}{$\bullet$}
+\usepackage{fourier} 
+\usepackage{array}
+\usepackage{makecell}
+\usepackage{bbm}
+\usepackage[normalem]{ulem}
+\useunder{\uline}{\ul}{}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{capt-of}
+
+\renewcommand\theadalign{bc}
+\renewcommand\theadfont{\bfseries}
+\renewcommand\theadgape{\Gape[4pt]}
+\renewcommand\cellgape{\Gape[4pt]}
+
+\renewcommand*\abstractname{Abstract}
+
+\usepackage{url}
+
+
+\mainmatter  % start of an individual contribution
+
+\newcommand{\eg}[1]{\textsf{\small{\color{blue}[EG:~#1]}}}
+\newcommand{\jho}[1]{\textsf{\small{\color{violet}[Jose:~#1]}}}
+\newcommand{\sto}[1]{\textsf{\small{\color{darkgreen}[STO:~#1]}}}
+
+% the following package is optional:
+%\usepackage{latexsym} 
+\usepackage{xspace}
+\usepackage{subfig}
+\usepackage{amssymb}% http://ctan.org/pkg/amssymb
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+
+%\usepackage[colorlinks,pagebackref,linktocpage,draft]{hyperref}
+%\usepackage[colorlinks,linktocpage,draft]{hyperref}
+\usepackage[colorlinks,linktocpage,draft]{hyperref}
+\usepackage{url}
+\usepackage{relsize}
+\renewcommand*{\UrlFont}{\ttfamily\smaller\relax}
+
+\hypersetup{pdfpagemode=UseNone}  % To prevent opening the bookmarks pane every time in Acrobat Reader
+
+\usepackage{graphicx}
+\usepackage{seqsplit}% http://ctan.org/pkg/seqsplit
+\usepackage{array}
+
+%\usepackage{lineno,hyperref}
+%\modulolinenumbers[5]
+\input{glyphtounicode}  % With this ``fi'' and other ligatures are copied correctly from the PDF
+\pdfgentounicode=1
+
+
+\usepackage{color} 
+\definecolor{darkred}{rgb}{0.55, 0.0, 0.0}
+\definecolor{orange}{RGB}{255,127,0}
+\definecolor{brown}{RGB}{150,70,0}
+\definecolor{green}{RGB}{127,255,127}
+\definecolor{darkgreen}{RGB}{0,127,0}
+\definecolor{blue}{RGB}{127,127,255}
+\definecolor{lightblue}{RGB}{150,150,255}
+\definecolor{darkblue}{RGB}{0,0,127}
+\definecolor{red}{RGB}{255,90,90}
+\definecolor{grey}{RGB}{127,127,127}
+\definecolor{pink}{RGB}{255,180,180}
+\newcommand{\blue}[1][blue]{\textcolor{blue}{{#1}}}
+\newcommand{\darkblue}[1][darkblue]{\textcolor{darkblue}{{#1}}}
+\newcommand{\red}[1][red]{\textcolor{red}{{#1}}}
+\newcommand{\orange}[1][orange]{\textcolor{orange}{{#1}}}
+\newcommand{\darkgreen}[1][darkgreen]{\textcolor{darkgreen}{{#1}}}
+\newcommand{\darkred}[1][darkred]{\textcolor{darkred}{{#1}}}
+\newcommand{\green}[1][green]{\textcolor{green}{{#1}}}
+\newcommand{\grey}[1][grey]{\textcolor{grey}{{#1}}}
+\newcommand{\pink}[1][pink]{\textcolor{pink}{{#1}}}
+
+\newcommand{\inserted}[1]{\textcolor{darkblue}{{#1}}}
+\newcommand{\modified}[1]{\textcolor{brown}{{#1}}}
+\newcommand{\moved}[1]{\textcolor{darkgreen}{{#1}}}
+\setlength\parindent{0pt}
+
+\setlength{\marginparwidth}{2.5cm}  % Depending of margins the size of the sidenotes can be tuned
+
+%\newcommand{\sidenote}[1]{}
+\newcommand{\sidenote}[1]{\textcolor{grey}{${}\hspace{0pt}{\bullet}$}\marginpar{\textcolor{grey}{${\leftarrow}\hspace{0pt}{\bullet}$}\\\tiny{\textcolor{grey}{#1}}}}
+
+
+%\newcommand{\sidenoteJose}[1]{}
+\newcommand{\sidenoteJose}[1]{\textcolor{violet}{${}\hspace{0pt}{\bullet}$}\marginpar{\textcolor{violet}{${\leftarrow}\hspace{0pt}{\bullet}$}\\\tiny{\textcolor{violet}{Jose: #1}}}}
+
+%\newcommand{\sidenoteJose}[1]{}
+\newcommand{\sidenoteNando}[1]{\textcolor{red}{${}\hspace{0pt}{\bullet}$}\marginpar{\textcolor{red}{${\leftarrow}\hspace{0pt}{\bullet}$}\\\tiny{\textcolor{red}{Nando: #1}}}}
+
+
+%\newcommand{\sidenoteSTO}[1]{}
+\newcommand{\sidenoteSTO}[1]{\textcolor{darkgreen}{${}\hspace{0pt}{\bullet}$}\marginpar{\textcolor{violet}{${\leftarrow}\hspace{0pt}{\bullet}$}\\\tiny{\textcolor{darkgreen}{STO: #1}}}}
+
+\newcommand{\sidenoteE}[1]{\textcolor{orange}{${}\hspace{0pt}{\bullet}$}\marginpar{\textcolor{orange}{${\leftarrow}\hspace{0pt}{\bullet}$}\\\tiny{\textcolor{orange}{Em: #1}}}}
+
+% Following comment is from ijcai97-submit.tex:
+% The preparation of these files was supported by Schlumberger Palo Alto
+% Research, AT\&T Bell Laboratories, and Morgan Kaufmann Publishers.
+% Shirley Jowell, of Morgan Kaufmann Publishers, and Peter F.
+% Patel-Schneider, of AT\&T Bell Laboratories collaborated on their
+% preparation.
+
+% These instructions can be modified and used in other conferences as long
+% as credit to the authors and supporting agencies is retained, this notice
+% is not changed, and further modification or reuse is not restricted.
+% Neither Shirley Jowell nor Peter F. Patel-Schneider can be listed as
+% contacts for providing assistance without their prior permission.
+
+% To use for other conferences, change references to files and the
+% conference appropriate and use other authors, contacts, publishers, and
+% organizations.
+% Also change the deadline and address for returning papers and the length and
+% page charge instructions.
+% Put where the files are available in the appropriate places.
+
+\title{Machine Learning and Active Labor Market Policies}
+
+
+% Multiple author syntax (remove the single-author syntax above and the \iffalse ... \fi here)
+%\iffalse
+\author{Patricia Gallego-Granados$^1$, Song\"ul Tolan$^2$} 
+\institute{
+$^1$ DIW Berlin,\\ 
+$^2$ Joint Research Centre, European Commission,\\ 
+{\tt 
+\footnotesize{songul.tolan@ec.europa.eu}, 
+\footnotesize{pgallegogranados@diw.de}
+}}
+% If your authors do not fit in the default space, you can increase it 
+% by uncommenting the following (adjust the "2.5in" size to make it fit
+% properly)
+% \setlength\titlebox{2.5in}
+%\fi
+\pagestyle{headings}
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+In this paper we investigate the effect of active labour market policies (ALMP) on employment.  
+\end{abstract}
+
+% Main content section
+\input{01-introduction.tex}
+\input{"02-Institutional Background.tex"}
+\input{03-Data.tex}
+
+
+
+%% Bibliography
+\bibliographystyle{chicago}
+\bibliography{AIempl}
+
+\newpage
+
+\subsection*{Appendix}
+
+
+
+\end{document}
+
